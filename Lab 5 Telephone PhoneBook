@@ -49,8 +49,9 @@ int main()
 void printPB(PhoneBk *pb, int size){
     /* Write your code here */
     int index =0;
+    printf("The phonebook list:\n");
     for(index; index<size; index++){
-        printf("%s %d\n", pb[index].name, pb[index].telno);
+        printf("\t%s %d\n", pb[index].name, pb[index].telno);
     }
     if (size == 0){
         printf("Empty phonebook\n");
