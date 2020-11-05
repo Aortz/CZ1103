@@ -59,24 +59,27 @@ void printPB(PhoneBk *pb, int size){
 
 int readin(PhoneBk *pb){
     /* Write your code here */
-    int r = 0, tempnum, counter = 0;
-    char *p, tempname[20];
-    while(r<20){
+    int r = 0, tempnum;
+    char *p, tempname[20], dummychar;
+    while(r<100){
         printf("Enter name:\n");
-        scanf("%s", &tempname);
-        strcpy(pb[r].name, tempname);
+        //scanf("%s", &tempname);
+        //strcpy((pb+r)->name, tempname);
+        fgets(tempname, 20, stdin);
+        if (p=strchr(tempname,'\n'))*p='\0';
+        strcpy((pb+r)->name, tempname);
         if(pb[r].name[0] != '#'){
             printf("Enter tel: \n");
             scanf("%d", &tempnum);
             (pb[r].telno) = tempnum;
+            scanf("%c", &dummychar);
             r++;
-            counter +=1;
         }
         else{
             break;
         }
     };
-    return counter;
+    return r;
 
 }
 
